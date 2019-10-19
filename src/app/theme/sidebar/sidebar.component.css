@@ -1,0 +1,21 @@
+.navbar img{
+    height: 56px;
+    width: 42px;
+}
+.breadcrumb-dn p{
+    font-size: 28px;
+}
+
+
+li.admin {
+    display: inline-flex;
+    align-items: center;
+}
+.admin i{
+    font-size: 54px;
+}
+.nav-item img{
+    height: 38px;
+    width: 38px;
+    border-radius: 50px;
+}
