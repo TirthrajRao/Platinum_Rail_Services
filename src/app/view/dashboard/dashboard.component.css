@@ -1,0 +1,31 @@
+.card-image-1{
+    background-image: url("../../../assets/images/dashboard1.png");
+    background-repeat:no-repeat; 
+}
+.card-image-2{
+    background-image: url("../../../assets/images/dashboard3.png");
+    background-repeat:no-repeat; 
+}
+.card-image-3{
+    background-image: url("../../../assets/images/dashboard2.png");
+    background-repeat:no-repeat; 
+}
+.dashBoardSection{
+    padding: 30px 50px;
+}
+.dashBoardSection h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+.card-content span{
+font-size: 15px;
+color: #43425D;
+opacity: 0.5;
+}
+.card-content p {
+    font-size: 52px;
+    font-weight: bold;
+}
+.card{
+    box-shadow: 0 2px 5px 0 rgba(197, 197, 197, 0.16), 0 2px 10px 0 rgba(197, 197, 197, 0.12);
+}
