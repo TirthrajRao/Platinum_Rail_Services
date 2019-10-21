@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn: boolean = false;
+  constructor() {
+    if (this.isLoggedIn)
+      localStorage.setItem('userRole', 'admin');
+    else
+      localStorage.removeItem('userRole');
+  }
 
   ngOnInit() {
+
+  }
+
+  toggleLogin() {
+    this.isLoggedIn = !this.isLoggedIn;
+    if (this.isLoggedIn)
+      localStorage.setItem('userRole', 'admin');
+    else
+      localStorage.removeItem('userRole');
   }
 
 }

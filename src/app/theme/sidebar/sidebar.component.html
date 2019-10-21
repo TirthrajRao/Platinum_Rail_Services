@@ -12,7 +12,8 @@
       <!-- Side navigation links -->
       <li>
         <ul class="collapsible collapsible-accordion">
-          <li><a class="collapsible-header waves-effect arrow-r active" routerLink="dashBoard"><i class="mr-3 fas fa-chalkboard"></i>DashBoard</a>
+          <li><a class="collapsible-header waves-effect arrow-r active" routerLink="/dashBoard"><i
+                class="mr-3 fas fa-chalkboard"></i>DashBoard</a>
             <!-- <div class="collapsible-body">
                   <ul class="list-unstyled">
                     <li><a href="#" class="waves-effect">Submit listing</a>
@@ -22,7 +23,8 @@
                   </ul>
                 </div> -->
           </li>
-          <li><a class="collapsible-header waves-effect arrow-r" routerLink="course"><i class="mr-3 far fa-address-book"></i> Course</a>
+          <li><a class="collapsible-header waves-effect arrow-r" routerLink="/course"><i
+                class="mr-3 far fa-address-book"></i> Course</a>
             <!-- <div class="collapsible-body">
                   <ul class="list-unstyled">
                     <li><a href="#" class="waves-effect">For bloggers</a>
@@ -32,7 +34,8 @@
                   </ul>
                 </div> -->
           </li>
-          <li><a class="collapsible-header waves-effect arrow-r" routerLink="instructor"><i class="mr-3 fas fa-user-tie"></i> Instructor</a>
+          <li><a class="collapsible-header waves-effect arrow-r" routerLink="/instructor"><i
+                class="mr-3 fas fa-user-tie"></i> Instructor</a>
             <!-- <div class="collapsible-body">
                   <ul class="list-unstyled">
                     <li><a href="#" class="waves-effect">Introduction</a>
@@ -42,7 +45,8 @@
                   </ul>
                 </div> -->
           </li>
-          <li><a class="collapsible-header waves-effect arrow-r" routerLink="jobDetails"><i class="mr-3 fas fa-landmark"></i> Job</a>
+          <li><a class="collapsible-header waves-effect arrow-r" routerLink="/jobDetails"><i
+                class="mr-3 fas fa-landmark"></i> Job</a>
             <!-- <div class="collapsible-body">
               <ul class="list-unstyled">
                 <li><a href="#" class="waves-effect">FAQ</a>
@@ -82,15 +86,10 @@
       <p>Platinum Rail Services</p>
     </div>
     <ul class="nav navbar-nav nav-flex-icons ml-auto">
-      <!-- <li class="nav-item">
-            <a class="nav-link"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><i class="far fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"><i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Account</span></a>
-          </li> -->
+      <li class="nav-item" (click)="toggleLogin()">
+        <a class="nav-link"><i class="fas fa-envelope"></i> <span
+            class="clearfix d-none d-sm-inline-block">{{isLoggedIn ? 'Logout' : 'Login'}}</span></a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
           aria-expanded="false">
@@ -98,11 +97,11 @@
           <i class="fas fa-angle-down rotate-icon mr-3 ml-2"></i>
           <img src="assets/images/avatar.jpeg" alt="">
         </a>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+        <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
-        </div>
+        </div> -->
       </li>
     </ul>
   </nav>

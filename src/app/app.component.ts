@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  userRole;
   title = 'platinumRailServices';
+  constructor( ) {
+    // localStorage.setItem('userRole', 'admin')
+   }
 }
