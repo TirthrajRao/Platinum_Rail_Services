@@ -8,6 +8,8 @@ import { CourseComponent } from './view/course/course.component';
 import { InstructorComponent } from './view/instructor/instructor.component';
 import { JobComponent } from './view/job/job.component';
 import { UnauthorisedComponent } from './view/unauthorised/unauthorised.component';
+import { TabelComponent } from './view/tabel/tabel.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,11 +19,17 @@ import { UnauthorisedComponent } from './view/unauthorised/unauthorised.componen
     CourseComponent,
     InstructorComponent,
     JobComponent,
-    UnauthorisedComponent
+    UnauthorisedComponent,
+    TabelComponent
+  ],
+  entryComponents: [
+    TabelComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

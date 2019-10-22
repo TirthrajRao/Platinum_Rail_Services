@@ -18,22 +18,22 @@ const routes: Routes = [
   {
     path: 'dashBoard',
     component: DashboardComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'course',
     component: CourseComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'instructor',
     component: InstructorComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'jobDetails',
     component: JobComponent,
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'unauthorised',

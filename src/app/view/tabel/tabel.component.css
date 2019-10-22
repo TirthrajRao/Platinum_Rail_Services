@@ -1,0 +1,17 @@
+.card.table-first-dashboard input {
+    border-bottom: 0 !important;
+    background-color: #fff;
+    margin-left: 10px;
+    font-size: 16px !important;
+}
+.table th{
+    background-color: #F5F6FA;
+    color: #A3A6B4;
+}
+.table td{
+    color:#4D4F5C;
+}
+.card.table-first-dashboard span.badge-pill {
+    padding: 5px 26px;
+    color: #fff;
+}

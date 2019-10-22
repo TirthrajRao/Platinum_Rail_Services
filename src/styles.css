@@ -25,3 +25,13 @@ nav.navbar.fixed-top.double-nav {
     background-image: none !important;
     background-color: #4D4F5C !important;
 }
+
+
+/* Responsive Css */
+
+@media(max-width:1441px){
+    .pageContent{
+        /* padding-top: 0; */
+        padding-left: 0
+    }
+}
