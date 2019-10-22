@@ -16,17 +16,25 @@ export class AdminService {
       this.instructorList = [
         {
           instructorName: "Alex pedley",
-          jobs: "7"
+          jobs: "7",
+          email: "alex@gmail.com",
+          password: "123456"
         }, {
           instructorName: "Chris wood",
-          jobs: "10"
+          jobs: "10",
+          email: "alex@gmail.com",
+          password: "123456"
         }, {
           instructorName: "Sarah Wells",
-          jobs: "0"
+          jobs: "0",
+          email: "alex@gmail.com",
+          password: "123456"
         },
         {
           instructorName: "Leam Brennan",
-          jobs: "13"
+          jobs: "13",
+          email: "alex@gmail.com",
+          password: "123456"
         }
       ]
       observer.next(this.instructorList);
@@ -58,7 +66,7 @@ export class AdminService {
     });
   }
 
-  getJobList(){
+  getJobList() {
     return new Observable(observer => {
       this.courseList = [
         {
@@ -72,7 +80,7 @@ export class AdminService {
           location: "Leeds",
           instructor: "Leam Brennan",
           course: "L3 W11"
-        }, 
+        },
         {
           client: "FOC",
           location: "Elsecar",
@@ -86,7 +94,7 @@ export class AdminService {
           course: "IAG"
         }
 
-        
+
       ]
       observer.next(this.courseList);
       observer.complete();
@@ -95,8 +103,15 @@ export class AdminService {
   createNewCourse(data) {
     console.log("new course service response", data)
   }
-  createNewInstructor(data){
+  updateCourse(data) {
+    console.log("update course data in service ", data)
+  }
+  createNewInstructor(data) {
     console.log("new instructor details", data);
+  }
+
+  updateInstructor(data) {
+    console.log("update instructors list data in service", data)
   }
 }
 

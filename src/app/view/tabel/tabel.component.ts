@@ -18,8 +18,12 @@ export class TabelComponent implements OnInit {
   receviedData;
   headerList = [];
   Page: Number = 1;
-
+  // labelP;
   currentUrl;
+  public labels:any = {
+    previousLabel: '<'
+  }
+  // public prevArrow:any = "<i class='fa fa-angle-left' aria-hidden='true'></i>"
 
 
   constructor(private route: ActivatedRoute, private router: Router) {
@@ -32,6 +36,7 @@ export class TabelComponent implements OnInit {
   }
 
   ngOnInit() {
+
     console.log(this.instructorList, this.coursList, this.jobList)
     this.getDetails()
     $('li').click(function () {
@@ -39,7 +44,6 @@ export class TabelComponent implements OnInit {
     });
   }
   getDetails() {
-
     if (this.currentUrl == '/jobDetails') {
       this.receviedData = this.jobList;
       this.headerList = this.jobHeader;

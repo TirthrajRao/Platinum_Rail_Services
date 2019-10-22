@@ -12,6 +12,7 @@ import { TabelComponent } from './view/tabel/tabel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 
+
 @NgModule({
   declarations: [
     AppComponent,

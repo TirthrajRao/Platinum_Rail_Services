@@ -18,7 +18,7 @@ export class CourseComponent implements OnInit {
     'Sr.No', 'Title', 'Duration(Days)'
   ]
   allResponse = [];
-  modelValues: any;
+  modelValues: any = null;
 
   constructor(public adminService: AdminService) {
 
@@ -33,7 +33,8 @@ export class CourseComponent implements OnInit {
     });
     this.getCourseList()
     $('#modalLoginForm').on('hidden.bs.modal', function () {
-      this.modelValues = []
+      this.modelValues = null
+      console.log("value of modal", this.modelValues)
     });
   }
 
@@ -54,19 +55,24 @@ export class CourseComponent implements OnInit {
     this.createCourseForm.reset();
     $('#modalLoginForm').modal('toggle');
   }
+  updateCourse() {
+    this.adminService.updateCourse(this.createCourseForm.value)
+    $('#modalLoginForm').modal('toggle');
+  }
 
   getIndexToEdit(event) {
     console.log('got index in course', event);
     this.modelValues = this.allResponse[event];
+    console.log("modalvalues===========>", this.modelValues)
     this.createCourseForm.controls.courseName.setValue(this.modelValues.courseName);
     this.createCourseForm.controls.duration.setValue(this.modelValues.duration);
-
     $('#modalLoginForm').modal('show');
-   
   }
   openModal() {
-    
-      $('#modalLoginForm').modal('show');
-    
+    this.modelValues = null;
+    this.createCourseForm.reset();
+    console.log("open modal", this.modelValues, this.createCourseForm.value)
+    $('#modalLoginForm').modal('show');
+
   }
 }

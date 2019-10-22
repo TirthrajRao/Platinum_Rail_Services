@@ -37,8 +37,11 @@
                 </form>
             </div>
             <div class="d-flex justify-content-center mb-2">
-                <button class="btn btn-primary" type="submit" (click)="addNewCourse()">
+                <button class="btn btn-primary" type="submit" (click)="addNewCourse()" *ngIf="!modelValues">
                     <i class="fas fa-plus mr-4"></i>Add Course</button>
+
+                <button class="btn btn-primary" type="submit" (click)="updateCourse()" *ngIf="modelValues">
+                    <i class="fas fa-save mr-4"></i>Save</button>
             </div>
         </div>
     </div>
