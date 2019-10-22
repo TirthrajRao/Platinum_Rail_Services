@@ -10,6 +10,7 @@ import { JobComponent } from './view/job/job.component';
 import { UnauthorisedComponent } from './view/unauthorised/unauthorised.component';
 import { TabelComponent } from './view/tabel/tabel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

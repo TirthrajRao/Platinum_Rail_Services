@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute, Event } from '@angular/router';
+
 declare var $: any;
 @Component({
   selector: 'app-tabel',
@@ -7,35 +9,59 @@ declare var $: any;
 })
 export class TabelComponent implements OnInit {
   @Input() coursList;
-  @Input() courseHeader; 
+  @Input() courseHeader;
+  @Input() instructorList;
+  @Input() instructorHeader;
+  @Input() jobList;
+  @Input() jobHeader;
+  @Output() courseIndex: EventEmitter<any> = new EventEmitter<any>();;
   receviedData;
   headerList = [];
+  Page: Number = 1;
 
-  transform(value, args:string[]) : any {
-    let keys = [];
-    for (let key in value) {
-      keys.push(key);
-    }
-    return keys;
-  }
+  currentUrl;
 
-  constructor() { }
 
-  ngOnInit() {
-    this.receviedData = this.coursList;
-    this.headerList = this.courseHeader;
-    console.log("course Detaoils", this.headerList);
-    // Basic example
-    // $(document).ready(function () {
-    //   $('#dtBasicExample').DataTable({
-    //     "paging": false // false to disable pagination (or any other option)
-    //   });
-    //   $('.dataTables_length').addClass('bs-select');
-    // });
+  constructor(private route: ActivatedRoute, private router: Router) {
 
-    $('li').click(function() {
-      $(this).addClass('active').siblings().removeClass('active');
+    router.events.subscribe((routerEvent: Event) => {
+      console.log("frist activate router ", routerEvent)
+
+      this.checkRouterEvent(routerEvent);
     });
   }
 
+  ngOnInit() {
+    console.log(this.instructorList, this.coursList, this.jobList)
+    this.getDetails()
+    $('li').click(function () {
+      $(this).addClass('active').siblings().removeClass('active');
+    });
+  }
+  getDetails() {
+
+    if (this.currentUrl == '/jobDetails') {
+      this.receviedData = this.jobList;
+      this.headerList = this.jobHeader;
+    }
+    if (this.currentUrl == '/course') {
+      this.receviedData = this.coursList;
+      this.headerList = this.courseHeader;
+    }
+    if (this.currentUrl == '/instructor') {
+      this.receviedData = this.instructorList;
+      this.headerList = this.instructorHeader;
+    }
+
+    console.log("course Detaoils", this.receviedData);
+  }
+  checkRouterEvent(event) {
+    console.log("current url", event.url);
+    this.currentUrl = event.url
+  }
+  editCourseOrInstructor(data) {
+    console.log("edit events", data)
+    this.courseIndex.emit(data);
+
+  }
 }

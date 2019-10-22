@@ -57,6 +57,41 @@ export class AdminService {
       observer.complete();
     });
   }
+
+  getJobList(){
+    return new Observable(observer => {
+      this.courseList = [
+        {
+          client: "SCUK",
+          location: "HMP Kirkham",
+          instructor: "Alex Pedley",
+          course: "First Aid/E-learning"
+        },
+        {
+          client: "Shipley",
+          location: "Leeds",
+          instructor: "Leam Brennan",
+          course: "L3 W11"
+        }, 
+        {
+          client: "FOC",
+          location: "Elsecar",
+          instructor: "Chris Wood",
+          course: "Rail Saw"
+        },
+        {
+          client: "Shipley",
+          location: "Shipley",
+          instructor: "Chris Wood",
+          course: "IAG"
+        }
+
+        
+      ]
+      observer.next(this.courseList);
+      observer.complete();
+    });
+  }
   createNewCourse(data) {
     console.log("new course service response", data)
   }

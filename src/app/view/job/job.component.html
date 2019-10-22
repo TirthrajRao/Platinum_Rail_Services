@@ -12,6 +12,7 @@
 </div>
 
 
+<app-tabel [jobList]='jobList' [jobHeader]='jobHeader'></app-tabel>
 
 
 <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -20,47 +21,50 @@
         <div class="modal-content">
             <div class="modal-header">
                 <i class="fas fa-plus-circle mr-3"></i>
-                <h4 class="modal-title w-100 font-weight-bold">Add Instructor</h4>
+                <h4 class="modal-title w-100 font-weight-bold">Add Job</h4>
             </div>
             <div class="modal-body">
-                <form autocomplete="off">
+                <form [formGroup]="createNewJobForm" autocomplete="off">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="md-form">
-                                <input type="text" class="form-control" formControlName="name">
+                                <input type="text" class="form-control" formControlName="clientName">
                                 <label data-error="wrong" data-success="right" for="defaultForm-email">Client</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="md-form">
-                                <input type="email" class="form-control" formControlName="email">
+                                <input type="text" class="form-control" formControlName="location">
                                 <label data-error="wrong" data-success="right" for="defaultForm-pass">Location</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <select class="browser-default custom-select">
-                                <option selected>Choose Instructor
-                                    <i class="fas fa-caret-down"></i></option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label for="instructorName">Choose Instructor</label>
+                            <select class="browser-default custom-select custom-select-lg mb-1" id="instructorName"
+                                formControlName="instructor">
+                                <option>Choose Instructor</option>
+                                <option value="{{name.instructorName}}" *ngFor="let name of listOfInstructor">
+                                    {{name.instructorName}}</option>
                             </select>
                         </div>
                         <div class="col-md-6">
-                            <select class="browser-default custom-select">
-                                <option>Choose Course
-                                    <i class="fas fa-caret-down"></i>
-                                </option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label for="courseName">Choose Instructor</label>
+                            <select class="browser-default custom-select" id="courseName" formControlName="course">
+                                <option>Choose Course</option>
+                                <option value="1" *ngFor="let name of listOfCourse">{{name.courseName}}</option>
                             </select>
+                        </div>
+                        <div class="col-md-6 ml-auto">
+                            <div class="md-form">
+                                <input placeholder="Selected date" type="text" id="startDate"
+                                    class="form-control datepicker" formControlName="startingDate">
+                            </div>
                         </div>
                     </div>
                     <div class="row ">
-                        <div class="col-md-6 mt-3">
+                        <div class="col-md-4">
                             <label for="">Choose Frequency</label>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="materialUnchecked1">
@@ -92,121 +96,32 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
-                            <div class="md-form">
-                                <input placeholder="Selected date" type="text" id="date-picker-example"
-                                    class="form-control datepicker">
-                            </div>
+                        <div class="col-md-8">
                             <div class="selectedDate">
-                                <i class="fas fa-calendar-alt">
-                                    Dates for the job
-                                </i>
-                                <table class="table text-left" id="dtBasicExample">
-                                    <thead>
+                                <i class="fas fa-calendar-alt"></i>Dates for the job
+                                <div class="table-responsive">
+                                    <table class="table text-left" id="dtBasicExample">
                                         <tr>
-                                            <th scope="col">Sr.No</th>
-                                            <th scope="col">Date</th>
+                                            <th>Sr.No</th>
+                                            <th>Date</th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
                                         <tr>
                                             <td>1</td>
                                             <td>list.courseName</td>
                                             <td><i class="fas fa-caret-down"></i></td>
                                         </tr>
-                                    </tbody>
-                                </table>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="d-flex justify-content-center mb-2">
-                <button class="btn btn-primary" type="submit" >
-                    <i class="fas fa-plus mr-4"></i>Add Instructor</button>
+                <button class="btn btn-primary" type="submit" (click)="addNewJob()">
+                    <i class="fas fa-plus mr-4"></i>Add Job</button>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
-
-
-
-<!-- <div class="pageContent">
-    <div class="card m-5">
-        <div class="row">
-            <i class="fas fa-plus-circle mr-3"></i>
-            <h3>Add Job</h3>
-            <div class="col-md-6">
-                <input type="text" placeholder="Client">
-            </div>
-            <div class="col-md-6">
-                <input type="text" placeholder="Client">
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                    <select class="browser-default custom-select">
-                            <option selected>Choose Instructors</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-            </div>
-            <div class="col-md-6">
-                    <select class="browser-default custom-select">
-                            <option selected>Choose Course</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <span>Choose Frequency</span>
-            <div class="week-choose">
-                <label for="check1">Monday</label>
-                <input type="checkbox" id="check1">
-                <label for="check2">Monday</label>
-                <input type="checkbox" id="check2">
-                <label for="check3">Monday</label>
-                <input type="checkbox" id="check3">
-                <label for="check4">Monday</label>
-                <input type="checkbox" id="check4">
-                <label for="check5">Monday</label>
-                <input type="checkbox" id="check5">
-                <label for="check6">Monday</label>
-                <input type="checkbox" id="check6">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <i class="fas fa-calendar-alt">
-                Dates for the job
-            </i>
-            <div class="md-form">
-                <input placeholder="Selected date" type="text" id="date-picker-example" class="form-control datepicker">
-            </div>
-            <table class="table text-left" id="dtBasicExample">
-                <thead>
-                    <tr>
-                        <th scope="col">Sr.No</th>
-                        <th scope="col">Instructors</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>i+1</td>
-                        <td>list.courseName</td>
-                        <td><i class="fas fa-caret-down"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div> -->
