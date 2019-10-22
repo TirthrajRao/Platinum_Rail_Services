@@ -4,7 +4,7 @@ import { CourseComponent } from './view/course/course.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { InstructorComponent } from './view/instructor/instructor.component';
 import { JobComponent } from './view/job/job.component';
-import {UnauthorisedComponent} from './view/unauthorised/unauthorised.component';
+import { UnauthorisedComponent } from './view/unauthorised/unauthorised.component';
 import { AuthGuardService } from '../app/guards/auth-guard.service';
 /**
  * routing of all components
@@ -43,7 +43,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

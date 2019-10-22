@@ -22,9 +22,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UnauthorisedComponent,
     TabelComponent
   ],
-  entryComponents: [
-    TabelComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

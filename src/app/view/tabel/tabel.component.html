@@ -12,19 +12,16 @@
                     <div class="table-responsive table-left-dashboard">
                         <table class="table text-left" id="dtBasicExample">
                             <thead>
-                                <tr>
-                                    <th scope="col">Sr.No</th>
-                                    <th scope="col">Instructors</th>
-                                    <th scope="col">Jobs</th>
-                                    <th scope="col"></th>
+                                <tr *ngIf="headerList && headerList.length">
+                                    <th scope="col" *ngFor="let item of headerList">{{item}}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let list of receviedData;let i=index">
                                     <!-- <th scope="row">1</th> -->
                                     <td>{{i+1}}</td>
-                                    <td>{{list.courseName}}</td>
-                                    <td><span class="badge-pill badge-success">{{list.duration}}</span></td>
+                                    <td *ngFor="let item of list; let k = index;"><span [ngClass]="k == 1 ? 'badge-pill badge-success' : ''">{{item}}</span></td>
+                                    <!-- <td><span class="badge-pill badge-success">{{list.duration}}</span></td> -->
                                     <td class="editIcon"><i class="fas fa-edit success"></i></td>
                                 </tr>
                             </tbody>

@@ -7,12 +7,24 @@ declare var $: any;
 })
 export class TabelComponent implements OnInit {
   @Input() coursList;
+  @Input() courseHeader; 
   receviedData;
+  headerList = [];
+
+  transform(value, args:string[]) : any {
+    let keys = [];
+    for (let key in value) {
+      keys.push(key);
+    }
+    return keys;
+  }
+
   constructor() { }
 
   ngOnInit() {
     this.receviedData = this.coursList;
-    console.log("course Detaoils", this.receviedData);
+    this.headerList = this.courseHeader;
+    console.log("course Detaoils", this.headerList);
     // Basic example
     // $(document).ready(function () {
     //   $('#dtBasicExample').DataTable({

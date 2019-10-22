@@ -3,6 +3,7 @@ import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { EventEmitter } from 'events';
 import { $ } from 'protractor';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-course',
@@ -10,11 +11,10 @@ import { $ } from 'protractor';
   styleUrls: ['./course.component.css']
 })
 export class CourseComponent implements OnInit {
-   courseList;
-
+   courseList = [];
   createCourseForm: FormGroup;
   courseHeader = [
-    
+    'Sr.No','Title','Duration(Days)'
   ]
 
   constructor(public adminService: AdminService) { }
@@ -31,8 +31,10 @@ export class CourseComponent implements OnInit {
 
   getCourseList() {
     this.adminService.getCoursesList().subscribe((data: any) => {
-      console.log("course list data", data)
-      this.courseList = data;
+      _.forEach(data, (val) => {
+        this.courseList.push(Object.values(val));
+      })
+      console.log("course list data", this.courseList)
     })
   }
   addNewCourse(){
